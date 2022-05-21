@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/index.css')}}">
+	<script type="text/javascript" src="{{url_for('static', filename='js/index.js')}}"></script>
+	<title>Attendance Management</title>
+</head>
+<body>
+	<h1>Attendance Management</h1>
+	{% if retry %}
+	<p>Sorry, our systems failed to identify you. Please try again.</p>
+	{% endif %}
+	<div>
+		Welcome to image recognition attendance management system.
+		<form action="/record" method='POST' enctype="multipart/form-data">
+			<input type="file" name="image" capture="camera" accept="image/*">
+			<button>Upload Image</button>
+		</form>
+	</div>
+</body>
+</html>
