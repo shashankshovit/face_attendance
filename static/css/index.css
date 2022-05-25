@@ -1,0 +1,38 @@
+form {
+	margin: 10px;
+	text-align: center;
+}
+.camera {
+	position: relative;
+	text-align: center;
+}
+.button {
+	border: 1px solid;
+	border-radius: 10px;
+	box-shadow: 0px 0px 10px;
+    cursor: pointer;
+    margin: 5px;
+    padding: 9px 5px;
+}
+.hidden {
+	display: none;
+}
+.camera video {}
+.camera .shutter {
+	background: whitesmoke;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+	width: 100px;
+}
+
+.camera canvas {
+	border: 1px solid;
+    margin: auto;
+    /*left: 0;*/
+    position: absolute;
+    right: 0;
+    top: 0;
+}

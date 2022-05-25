@@ -13,11 +13,21 @@
 	<p>Sorry, our systems failed to identify you. Please try again.</p>
 	{% endif %}
 	<div>
-		Welcome to image recognition attendance management system.
+		<p>Welcome to image recognition attendance management system.</p>
 		<form action="/record" method='POST' enctype="multipart/form-data">
-			<input type="file" name="image" capture="camera" accept="image/*">
-			<button>Upload Image</button>
+			<input type="file" name="image" capture="user" accept="image/*" class="hidden">
+			<div class="camera hidden">
+				<video autoplay></video>
+				<span class="button shutter">Capture</span>
+			</div>
+			<canvas width="320" height="240" class="hidden"></canvas>
+			<br>
+			<div class="button_tray">
+				<span class="button camera_controller">Open Camera</span>
+				<button class="button hidden submit">Upload Image</button>
+			</div>
 		</form>
 	</div>
+
 </body>
 </html>
