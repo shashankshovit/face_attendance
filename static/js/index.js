@@ -7,21 +7,19 @@ window.onload = () => {
 	const canvas = document.querySelector("canvas");
 	let file_inp = document.querySelector("input[type=file][name=image]");
 
-	const canvas_context = canvas.getContext('2d');
-
 	const constraints = { video: true };
 
-	camera_control.addEventListener("click", ()=>{
-		navigator.mediaDevices.getUserMedia(constraints).then((stream) => {
-			player.srcObject = stream;
-			camera.classList.remove("hidden");
-			camera_control.classList.add("hidden");
-			submit.classList.add("hidden");
-			canvas.classList.add("hidden");
-		});
-	});
+	const onOpenCameraClick = async ()=>{
+		const stream = await navigator.mediaDevices.getUserMedia(constraints);
+		player.srcObject = stream;
+		camera.classList.remove("hidden");
+		camera_control.classList.add("hidden");
+		submit.classList.add("hidden");
+		canvas.classList.add("hidden");
+	};
 
-	shutter.addEventListener("click", ()=>{
+	const onShutterClick = ()=>{
+		const canvas_context = canvas.getContext('2d');
 		canvas_context.drawImage(player, 0, 0, canvas.width, canvas.height);
 		canvas.classList.remove("hidden");
 		camera_control.classList.remove("hidden");
@@ -36,5 +34,5 @@ window.onload = () => {
 			file_inp.files = dt_obj.files;
 
 		}, "image/jpeg")
-	});
+	};
 }

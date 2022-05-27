@@ -18,12 +18,12 @@
 			<input type="file" name="image" capture="user" accept="image/*" class="hidden">
 			<div class="camera hidden">
 				<video autoplay></video>
-				<span class="button shutter">Capture</span>
+				<span class="button shutter" onclick="onShutterClick">Capture</span>
 			</div>
 			<canvas width="320" height="240" class="hidden"></canvas>
 			<br>
 			<div class="button_tray">
-				<span class="button camera_controller">Open Camera</span>
+				<span class="button camera_controller" onclick="onOpenCameraClick">Open Camera</span>
 				<button class="button hidden submit">Upload Image</button>
 			</div>
 		</form>
