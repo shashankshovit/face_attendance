@@ -6,9 +6,8 @@
 	const canvas = document.querySelector("canvas");
 	let file_inp = document.querySelector("input[type=file][name=image]");
 
-	const dimension = Math.min(window.innerHeight, window.innerWidth);
-	player.width = player.height = dimension;
-	canvas.width = canvas.height = dimension;
+	canvas.width = player.videoWidth;
+	canvas.height = player.videoHeight;
 
 	camera_control.addEventListener("click", async (evt)=>{
 		let stream;
