@@ -6,12 +6,14 @@
 	const canvas = document.querySelector("canvas");
 	let file_inp = document.querySelector("input[type=file][name=image]");
 
-	const constraints = { video: true };
+	const dimension = Math.min(window.innerHeight, window.innerWidth);
+	player.width = player.height = dimension;
+	canvas.width = canvas.height = dimension;
 
 	camera_control.addEventListener("click", async (evt)=>{
 		let stream;
 		try {
-			stream = await navigator.mediaDevices.getUserMedia(constraints);
+			stream = await navigator.mediaDevices.getUserMedia({ video: true });
 		} catch(e) {
 			alert(e);
 		}
@@ -20,7 +22,6 @@
 		camera_control.classList.add("hidden");
 		submit.classList.add("hidden");
 		canvas.classList.add("hidden");
-		alert("Camera will turn on.");
 	});
 
 	shutter.addEventListener("click", (evt)=>{
