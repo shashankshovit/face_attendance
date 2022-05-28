@@ -6,9 +6,6 @@
 	const canvas = document.querySelector("canvas");
 	let file_inp = document.querySelector("input[type=file][name=image]");
 
-	canvas.width = player.videoWidth;
-	canvas.height = player.videoHeight;
-
 	camera_control.addEventListener("click", async (evt)=>{
 		let stream;
 		try {
@@ -21,6 +18,8 @@
 		camera_control.classList.add("hidden");
 		submit.classList.add("hidden");
 		canvas.classList.add("hidden");
+		canvas.width = player.videoWidth;
+		canvas.height = player.videoHeight;
 	});
 
 	shutter.addEventListener("click", (evt)=>{
