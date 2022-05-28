@@ -18,11 +18,11 @@
 		camera_control.classList.add("hidden");
 		submit.classList.add("hidden");
 		canvas.classList.add("hidden");
-		canvas.width = player.videoWidth;
-		canvas.height = player.videoHeight;
 	});
 
 	shutter.addEventListener("click", (evt)=>{
+		canvas.width = player.videoWidth;
+		canvas.height = player.videoHeight;
 		const canvas_context = canvas.getContext('2d');
 		canvas_context.drawImage(player, 0, 0, canvas.width, canvas.height);
 		canvas.classList.remove("hidden");
