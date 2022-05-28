@@ -1,4 +1,3 @@
-window.onload = () => {
 	const camera_control = document.querySelector(".camera_controller");
 	const camera = document.querySelector(".camera");
 	const shutter = document.querySelector(".camera .shutter");
@@ -9,16 +8,17 @@ window.onload = () => {
 
 	const constraints = { video: true };
 
-	const onOpenCameraClick = async ()=>{
+	camera_control.addEventListener("click", async (evt)=>{
 		const stream = await navigator.mediaDevices.getUserMedia(constraints);
 		player.srcObject = stream;
 		camera.classList.remove("hidden");
 		camera_control.classList.add("hidden");
 		submit.classList.add("hidden");
 		canvas.classList.add("hidden");
-	};
+		alert("Camera will turn on.");
+	});
 
-	const onShutterClick = ()=>{
+	shutter.addEventListener("click", (evt)=>{
 		const canvas_context = canvas.getContext('2d');
 		canvas_context.drawImage(player, 0, 0, canvas.width, canvas.height);
 		canvas.classList.remove("hidden");
@@ -33,6 +33,6 @@ window.onload = () => {
 			dt_obj.items.add(file);
 			file_inp.files = dt_obj.files;
 
-		}, "image/jpeg")
-	};
-}
+		}, "image/jpeg");
+
+	});

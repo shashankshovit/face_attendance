@@ -4,7 +4,6 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/index.css')}}">
-	<script type="text/javascript" src="{{url_for('static', filename='js/index.js')}}"></script>
 	<title>Attendance Management</title>
 </head>
 <body>
@@ -18,16 +17,17 @@
 			<input type="file" name="image" capture="user" accept="image/*" class="hidden">
 			<div class="camera hidden">
 				<video autoplay></video>
-				<span class="button shutter" onclick="onShutterClick">Capture</span>
+				<button class="button shutter" type="button">Capture</button>
 			</div>
 			<canvas width="320" height="240" class="hidden"></canvas>
 			<br>
 			<div class="button_tray">
-				<span class="button camera_controller" onclick="onOpenCameraClick">Open Camera</span>
+				<button class="button camera_controller" type="button">Open Camera</button>
 				<button class="button hidden submit">Upload Image</button>
 			</div>
 		</form>
 	</div>
 
+	<script type="text/javascript" src="{{url_for('static', filename='js/index.js')}}"></script>
 </body>
 </html>
