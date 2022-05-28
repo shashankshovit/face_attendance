@@ -9,8 +9,9 @@
 	const constraints = { video: true };
 
 	camera_control.addEventListener("click", async (evt)=>{
+		let stream;
 		try {
-			const stream = await navigator.mediaDevices.getUserMedia(constraints);
+			stream = await navigator.mediaDevices.getUserMedia(constraints);
 		} catch(e) {
 			alert(e);
 		}
