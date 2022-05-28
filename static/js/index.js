@@ -9,7 +9,11 @@
 	const constraints = { video: true };
 
 	camera_control.addEventListener("click", async (evt)=>{
-		const stream = await navigator.mediaDevices.getUserMedia(constraints);
+		try {
+			const stream = await navigator.mediaDevices.getUserMedia(constraints);
+		} catch(e) {
+			alert(e);
+		}
 		player.srcObject = stream;
 		camera.classList.remove("hidden");
 		camera_control.classList.add("hidden");
